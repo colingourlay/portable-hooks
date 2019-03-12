@@ -22,39 +22,32 @@ function ExampleA() {
 
 ReactDOM.render(<ExampleA />, document.getElementById('example-a'));
 
-function ExampleB() {
+function logMountDuration(x: string) {
+  let seconds = 0;
+
+  const id = setInterval(() => {
+    seconds++;
+    console.log(`"${x}" was mounted ${seconds} seconds ago`);
+  }, 1000);
+
+  return () => clearInterval(id);
+}
+
+function ExampleB({ text }) {
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  }, [count]);
+  useEffect(logMountDuration, [text], []);
 
   return (
     <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
+      <h1>{text}</h1>
+      <button onClick={() => setCount(count + 1)}>
+        {`I've been pressed `}
+        {count}
+        {` times`}
+      </button>
     </div>
   );
 }
 
-ReactDOM.render(<ExampleB />, document.getElementById('example-b'));
-
-function ExampleC() {
-  const [count, setCount] = useState(0);
-
-  useEffect(
-    x => {
-      document.title = `You clicked ${x} times`;
-    },
-    [count]
-  );
-
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-    </div>
-  );
-}
-
-ReactDOM.render(<ExampleC />, document.getElementById('example-c'));
+ReactDOM.render(<ExampleB text="Example B" />, document.getElementById('example-b'));

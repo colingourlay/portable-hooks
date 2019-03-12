@@ -1,7 +1,7 @@
 {
   "name": "portable-hooks",
   "version": "1.0.0",
-  "description": "More versatile replacements for React's dependency-based hooks",
+  "description": "Wrappers for React's hooks that make them more versatile",
   "keywords": [
     "react hook",
     "reusable",
