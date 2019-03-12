@@ -1,6 +1,8 @@
 # portable-hooks
 
-Wrappers for React's hooks that make them more versatile
+Wrappers for React's hooks that make them more portable
+
+[Read the introductory post on dev.to](https://dev.to/colingourlay/reacts-hooks-could-be-more-portable-1l2d)
 
 ```sh
 $ npm i portable-hooks
