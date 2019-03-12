@@ -21,7 +21,7 @@ function Title({ text }) {
 
 ### _"Wait, that's just how I'd use React's `useEffect`!"_
 
-Yeah, but do React's hooks lock you into writing effect functions every time you render
+Yeah, but do React's hooks let you do this?
 
 ```js
 import React, { useEffect } from 'react';
@@ -34,7 +34,7 @@ function Title({ text }) {
 
 function updateTitle(title) {
   document.title = title;
-  // > document.title is now `undefined`
+  // Uh oh. `document.title` is now `undefined`
 }
 ```
 
@@ -52,7 +52,7 @@ function Title({ text }) {
 
 function updateTitle(title) {
   document.title = title;
-  // > document.title is now the same as the Title component's `text` prop
+  // `document.title` is now the same as the Title component's `text` prop
 }
 ```
 
