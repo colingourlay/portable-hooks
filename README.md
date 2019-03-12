@@ -23,7 +23,7 @@ function App({ text }) {
 
 ### _"Wait, that's how React's `useEffect` already works!"_
 
-Yeah, but what if you wanted to move that effect function outside component, so you can use in elsewhere? React's existing `useEffect` hook depends on the component function closure for access to props/state. If you wanted to extract the effect that sets `document.title`, you'd have to do this:
+Yeah, but what if you wanted to move that effect function outside the component, so you can use in elsewhere? React's existing `useEffect` hook depends on the component function closure for access to props/state. If you wanted to extract the effect that sets `document.title`, you'd have to do this:
 
 ```js
 import React, { useEffect } from 'react';
