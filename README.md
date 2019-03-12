@@ -77,14 +77,12 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { useEffect } from 'portable-hooks';
 
-function App({dataURL, fetchData}) {
+function App({ dataURL, fetchData }) {
   const [data, setData] = useState(null);
 
   useEffect(fetchData, [dataURL, setData]);
 
-  return <div>{data ? <div>{
-    /* use `data` for something here */
-  }</div> : 'Loading...'}</div>;
+  return <div>{data ? <div>{/* use `data` for something here */}</div> : 'Loading...'}</div>;
 }
 
 async function fetchDataUsingAxios(url, setData) {
@@ -93,14 +91,14 @@ async function fetchDataUsingAxios(url, setData) {
   setData(result.data);
 }
 
-ReactDOM.render(<App dataURL="https://...", fetchData={fetchDataUsingAxios} />, document.body);
+ReactDOM.render(<App dataURL="https://..." fetchData={fetchDataUsingAxios} />, document.body);
 ```
 
 Now you have a component that expects its `fetchData` prop to be a function that matches a certain signature, but you can implement that function in **any way you want**.
 
 ### _"\*ahem\* Excuse me, but sometimes I wanna lie to `useEffect` about what's changed"_
 
-Look, [lying about dependencies is a bad idea](https://overreacted.io/a-complete-guide-to-useeffect/#dont-lie-to-react-about-dependencies), and `portable-hooks` very much encourages you (by design) to not lie about dependencies, buuuuut in rare cases it is actually useful. Dont worry though, I got you covered.
+Look, [lying about dependencies is a bad idea](https://overreacted.io/a-complete-guide-to-useeffect/#dont-lie-to-react-about-dependencies), and `portable-hooks` very much encourages you (by design) to not lie about dependencies, buuuuut in rare cases it is actually useful. Don't worry though, I got you covered.
 
 Each hook in `portable-hooks` differs from React's version by caring about one extra optional argument. If you set it, React's hook will use this as its dependency list, and the original inputs will still be passed into your function.
 
@@ -157,9 +155,9 @@ ReactDOM.render(<App text="Example" />, document.body);
 - `useLayoutEffect`
 - `useMemo`
 
-As explained earlier, they're all wrappers around React's own hooks, and expose the same API (with an additional optional argument for those situations where you wanna lie about dependencies), so you can use them interchangably.
+As explained earlier, they're all wrappers around React's own hooks, and expose the same API (with an additional optional argument for those situations where you wanna lie about dependencies), so you can use them interchangeably.
 
-This means that all of your existing anonymous-argumentless code is already compatible, and you can start a refactor by updating your imports:
+This means that all of your existing anonymous-argument-less code is already compatible, and you can start a refactor by updating your imports:
 
 ```js
 import React, { useEffect } from 'react';
