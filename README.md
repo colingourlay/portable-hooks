@@ -69,7 +69,7 @@ The `portable-hooks` package provides wrapped versions of React's own hooks, whi
 
 ### This lets us do cool things... like "effect props"
 
-Wouldn't it be great to customise components by passing in effects:
+Wouldn't it be great to customise components by passing in effects as props:
 
 ```js
 import axios from 'axios';
@@ -96,7 +96,7 @@ ReactDOM.render(<App dataURL="https://..." fetchData={fetchDataUsingAxios} />, d
 
 Now you have a component that expects its `fetchData` prop to be a function that matches a certain signature, but you can implement that function in **any way you want**.
 
-### _"\*ahem\* Excuse me, but sometimes I wanna lie to `useEffect` about what's changed"_
+### _\*ahem\* "Excuse me, but sometimes I wanna lie to `useEffect` about what's changed"_
 
 Look, [lying about dependencies is a bad idea](https://overreacted.io/a-complete-guide-to-useeffect/#dont-lie-to-react-about-dependencies), and `portable-hooks` very much encourages you (by design) to not lie about dependencies, buuuuut in rare cases it is actually useful. Don't worry though, I got you covered.
 
