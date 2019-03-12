@@ -1,0 +1,38 @@
+{
+  "name": "portable-hooks",
+  "version": "1.0.0",
+  "description": "More versatile replacements for React's dependency-based hooks",
+  "keywords": [
+    "react hook",
+    "reusable",
+    "dependency"
+  ],
+  "license": "Unlicense",
+  "contributors": [
+    "Colin Gourlay <colin@colin-gourlay.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colingourlay/portable-hooks.git"
+  },
+  "main": "dist/portable-hooks.js",
+  "module": "dist/portable-hooks.mjs",
+  "source": "src/portable-hooks.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "start": "http-server example --silent & npm run watch",
+    "watch": "microbundle watch --entry example/src/index.tsx --globals react=React,react-dom=ReactDOM --format umd --jsx React.createElement --output example/dist/bundle.js",
+    "build": "rm -rf dist && microbundle --format cjs,es --sourcemap=false",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "microbundle": "^0.11.0",
+    "react": "^16.8.4"
+  },
+  "peerDependencies": {
+    "react": "^16.8.4"
+  }
+}
